@@ -8,8 +8,8 @@ plugins {
     `maven-publish`
 }
 
-group = providers.gradleProperty("mod_version").get()
-version = providers.gradleProperty("maven_group").get()
+version = providers.gradleProperty("mod_version").get()
+group = providers.gradleProperty("maven_group").get()
 
 loom {
     runConfigs {
@@ -153,10 +153,9 @@ kotlin {
 }
 
 tasks.jar {
-    inputs.property("archivesName", base.archivesName)
-
+    inputs.property("archivesName", project.name)
     from("LICENSE") {
-        rename { "${it}_${base.archivesName.get()}" }
+        rename { "${it}_${inputs.properties["archivesName"]}" }
     }
 }
 
