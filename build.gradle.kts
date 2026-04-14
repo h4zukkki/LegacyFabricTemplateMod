@@ -66,7 +66,7 @@ tasks.processResources {
 
                     val mixinJsonFile = sourceSets["main"].resources.sourceDirectories
                         .mapNotNull { dir ->
-                            File(dir, mixinName).takeIf { fabricJsonFile -> fabricJsonFile.exists() }
+                            File(dir, mixinName).takeIf { mixinJsonFile -> mixinJsonFile.exists() }
                         }
                         .single()
 
